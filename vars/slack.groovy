@@ -24,3 +24,5 @@ def call(String buildStatus = 'STARTED') {
 
   // Send notifications
   slackSend (channel: "#jenkins-alert",color: colorCode, message: details)
+  
+}
