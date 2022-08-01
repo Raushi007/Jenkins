@@ -15,7 +15,7 @@ sh"""
 {
   "text": "${event.capitalize()} commit fakeCommitId to fakeApp fakeregion fakeEnv fakeListenerType Listener\\n\\n
       <a href=\\"${GIT_URL}\\">LiveListener: </a>\\n
-      <a href=\\"${JOB_BASE_NAME}/commit/${GIT_COMMIT}\\">TestListener: (${GIT_COMMIT})</a>\\n
+      <a href=\\"#${JOB_NAME}/commit/${GIT_COMMIT}\\">TestListener: (${GIT_COMMIT})</a>\\n
       <a href=\\"${JOB_URL}\\">Jenkins #${BUILD_NUMBER} (DEPLOY Logs)</a>",
   "tags": [ "${event}", "env:fakeEnv", "application:fakeApp", "commit:fakeCommitId" ]
 }
