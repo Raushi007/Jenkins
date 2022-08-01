@@ -22,7 +22,7 @@ sh"""
 
 EOF
 
- curl -s -X POST http://15.207.254.13:3000/api/annotations \
+ curl -s -X POST http://13.127.138.84:3000/api/annotations \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${grafanaToken}" \
             --data @EventAnnotation.txt
