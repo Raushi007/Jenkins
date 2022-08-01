@@ -1,6 +1,6 @@
 //Annotate Event to Grafana
 def annotateEventToGrafana(event) {
-    withCredentials([[$class: 'StringBinding', credentialsId: 'grafana-today', variable: 'grafanaToken']]) {
+    withCredentials([[$class: 'StringBinding', credentialsId: 'grafana_token', variable: 'grafanaToken']]) {
         grafanaToken = "${grafanaToken}"
 
         if (event == 'deploy') {
