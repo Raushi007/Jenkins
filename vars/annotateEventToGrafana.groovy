@@ -4,7 +4,7 @@ def annotateEventToGrafana(event) {
         grafanaToken = "${grafanaToken}"
 
         if (event == 'deploy') {
-            listener_type = "DeployonProd"
+            listener_type = "Test"
         } else {
             listener_type = "Live"
         }
