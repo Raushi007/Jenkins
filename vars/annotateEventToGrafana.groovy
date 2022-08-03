@@ -16,7 +16,7 @@ sh"""
   "text": "${event.capitalize()} commit ${GIT_COMMIT} For >>Service:'${JOB_NAME}' ${listener_type} \\n\\n
     <a href=\\"${GIT_URL}/commit/${LOGNAME}\\">LiveListener: (${GIT_COMMIT})</a>\\n
     <a href=\\"${BUILD_URL}\\">Jenkins #${BUILD_NUMBER} (DEPLOY Logs)</a>",
-  "tags": [ "${event}", "env:fakeEnv", "application:fakeApp", "commit:fakeCommitId" ]
+  "tags": [ "${event}", "env:${params.ENV}", "application:fakeApp", "commit:fakeCommitId" ]
 }
 
 EOF
