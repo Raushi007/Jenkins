@@ -12,7 +12,7 @@ def annotateEventToGrafana(event) {
 sh"""
   cat << EOF > EventAnnotation.txt
 {
-  "text": "${event.capitalize()} Branch: '${params.BRANCH}' To Service:'${JOB_BASE_NAME}' ${listener_type} \\n\\n
+  "text": "${event.capitalize()} Branch: '${env.branch}' To Service:'${JOB_BASE_NAME}' ${listener_type} \\n\\n
     <a href=\\"${BUILD_URL}\\">Jenkins #${BUILD_NUMBER} (DEPLOY Logs)</a>",
   "tags": [ "${event}", "env:Prod", "application:${JOB_BASE_NAME}","Branch:${env.branch}" ]
 }
