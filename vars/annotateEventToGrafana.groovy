@@ -11,23 +11,18 @@ def annotateEventToGrafana(event) {
 
 sh"""
   cat << EOF > EventAnnotation.txt
-
 {
-  "text": "${event.capitalize()} commit ${GIT_COMMIT} For >>Service:'${JOB_NAME}' ${listener_type} \\n\\n
-    <a href=\\"${GIT_URL}/commit/${LOGNAME}\\">LiveListener: (${GIT_COMMIT})</a>\\n
+  "text": "${event.capitalize()} Branch: '${params.BRANCH}' To Service:'${JOB_BASE_NAME}' ${listener_type} \\n\\n
     <a href=\\"${BUILD_URL}\\">Jenkins #${BUILD_NUMBER} (DEPLOY Logs)</a>",
-  "tags": [ "${event}", "env:${params.ENV}", "application:fakeApp", "commit:fakeCommitId" ]
+  "tags": [ "${event}", "env:Prod", "application:${JOB_BASE_NAME}","Branch:${params.BRANCH}" ]
 }
-
 EOF
-
- curl -s -X POST http://3.110.207.39:3000/api/annotations \
+ curl -s -X POST http://13.233.98.2/api/annotations \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${grafanaToken}" \
             --data @EventAnnotation.txt
-        
+
         """
 
     }
 }
-
