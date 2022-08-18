@@ -17,7 +17,7 @@ sh"""
   "tags": [ "${event}", "env:Prod", "application:${JOB_BASE_NAME}","Branch:${params.BRANCH}" ]
 }
 EOF
- curl -s -X POST http://13.233.98.2/api/annotations \
+ curl -s -X POST http://13.233.98.2:3000/api/annotations \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${grafanaToken}" \
             --data @EventAnnotation.txt
